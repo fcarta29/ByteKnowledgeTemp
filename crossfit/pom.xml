@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.byteknowledge</groupId>
+        <artifactId>miraculous</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+    </parent>
+    
+    <packaging>war</packaging>
+    <artifactId>crossfit</artifactId>
+    <name>Byte Knowledge Miraculous - Crossfit Webapp</name>   
+    
+    <properties>
+
+    </properties> 
+
+    <build>
+        <finalName>crossfit</finalName>
+
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <outputDirectory>target/classes</outputDirectory>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>           
+        </resources>
+
+        <testSourceDirectory>src/test/java</testSourceDirectory>
+        <testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
+        
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.0.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <version>6.1.16</version>
+                <configuration>
+                    <contextPath>/crossfit</contextPath>
+                    <connectors>
+                        <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                            <port>8080</port>
+                            <maxIdleTime>60000</maxIdleTime>
+                        </connector>
+                    </connectors>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>        
+        
+    <profiles>
+        <!-- ================= Developer Profiles ================= -->
+        <profile>
+            <id>fcarta</id>
+            <activation>
+                <property>
+                    <name>env.USER</name>
+                    <value>fcarta</value>
+                </property>
+            </activation>
+            <properties>
+
+            </properties>
+        </profile>
+        
+         <profile>
+            <id>jhopkins</id>
+            <activation>
+                <property>
+                    <name>env.USER</name>
+                    <value>Joe</value>
+                </property>
+            </activation>
+            <properties>
+
+            </properties>
+        </profile>
+    </profiles>        
+        
+</project>

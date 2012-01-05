@@ -1,0 +1,128 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.byteknowledge</groupId>
+    <artifactId>miraculous</artifactId>
+    <name>Byte Knowledge Miraculous - Modular Application</name>
+    <version>0.1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <url>http://www.byteknowledge.com</url>
+    
+    <modules>
+        <!-- module>core</module>
+        <module>model</module>
+        <module>core-services</module>
+        <module>core-webapp</module-->
+        <module>crossfit</module>
+    </modules>
+  
+    <prerequisites>
+        <maven>3.0.3</maven>
+    </prerequisites>
+    
+    <properties>
+        <!-- Spring framework -->
+        <spring-version>3.0.3.RELEASE</spring-version>
+
+        <!-- Logging -->
+        <log4j-version>1.2.15</log4j-version>
+        <log.console.threshold>DEBUG</log.console.threshold>
+        
+        <!-- Testing -->
+        <junit-version>4.7</junit-version>
+    </properties>
+    
+    <!-- repositories>
+        <repository>
+            <id>internal</id>
+            <name>Archiva Managed Internal Repository</name>
+            <url>http://archiva.byteknowledge.com/archiva/repository/internal</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>snapshots</id>
+            <name>Archiva Managed Snapshot Repository</name>
+            <url>http://archiva.byteknowledge.com/archiva/repository/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories--> 
+
+    <!-- pluginRepositories>
+        <pluginRepository>
+            <id>internal</id>
+            <url>http://archiva.byteknowledge.com/archiva/repository/internal</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories-->   
+    
+    <build>
+        <plugins>
+            <!-- SKIP THE DEFAULT DEPLOY PLUGIN -->
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>    
+    </build>
+   
+    <!-- Distribution management -->
+    <!-- distributionManagement>
+        <repository>
+            <id>internal</id>
+            <name>MT Internal Repository</name>
+            <url>dav:http://archiva.byteknowledge.com/archiva/repository/internal/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>MT Snapshots Repository</name>
+            <url>dav:http://archiva.byteknowledge.com/archiva/repository/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement--> 
+    
+    <profiles>
+        <!-- ================= Developer Profiles ================= -->
+        <profile>
+            <id>fcarta</id>
+            <activation>
+                <property>
+                    <name>env.USER</name>
+                    <value>fcarta</value>
+                </property>
+            </activation>
+            <properties>
+
+            </properties>
+        </profile>
+        
+         <profile>
+            <id>jhopkins</id>
+            <activation>
+                <property>
+                    <name>env.USER</name>
+                    <value>Joe</value>
+                </property>
+            </activation>
+            <properties>
+
+            </properties>
+        </profile>
+    </profiles>
+
+</project>
